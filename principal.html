@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armand | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --space-dark: #030308;
+            --star-white: #f8fafc;
+            --nebula-purple: #6d28d9;
+            --nebula-blue: #3b82f6;
+            --text-muted: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--space-dark);
+            color: var(--star-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Minimalist Starry Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image:
+                radial-gradient(1.5px 1.5px at 10% 10%, #fff, transparent),
+                radial-gradient(1px 1px at 20% 80%, rgba(255, 255, 255, 0.7), transparent),
+                radial-gradient(2px 2px at 80% 20%, #fff, transparent),
+                radial-gradient(1.5px 1.5px at 90% 90%, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(2px 2px at 50% 50%, #fff, transparent),
+                radial-gradient(1px 1px at 30% 40%, rgba(255, 255, 255, 0.5), transparent),
+                radial-gradient(1px 1px at 70% 60%, rgba(255, 255, 255, 0.6), transparent);
+            background-size: 150px 150px;
+            opacity: 0.4;
+            z-index: -2;
+            animation: starsMove 100s linear infinite;
+        }
+
+        /* Deuxième couche pour effet scintillant */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image:
+                radial-gradient(1px 1px at 15% 15%, #fff, transparent),
+                radial-gradient(1.5px 1.5px at 25% 75%, rgba(255, 255, 255, 0.9), transparent),
+                radial-gradient(1px 1px at 85% 25%, #fff, transparent),
+                radial-gradient(2px 2px at 75% 85%, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(1.5px 1.5px at 45% 65%, #fff, transparent);
+            background-size: 200px 200px;
+            opacity: 0;
+            z-index: -2;
+            animation: starsTwinkle 5s ease-in-out infinite alternate, starsMove 150s linear infinite;
+        }
+
+        @keyframes starsMove {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-150px);
+            }
+        }
+
+        @keyframes starsTwinkle {
+            0% {
+                opacity: 0.1;
+            }
+
+            100% {
+                opacity: 0.6;
+            }
+        }
+
+        /* Subtle Nebula Glow */
+        .nebula {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70vw;
+            height: 70vh;
+            background: radial-gradient(circle, rgba(109, 40, 217, 0.1) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 70%);
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+            transition: all 1s ease;
+            animation: pulseNebula 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseNebula {
+            0% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Étoiles Filantes */
+        .shooting-stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .shooting-stars span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+                0 0 0 8px rgba(255, 255, 255, 0.1),
+                0 0 20px rgba(255, 255, 255, 1);
+            animation: shoot 4s linear infinite;
+        }
+
+        .shooting-stars span::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 250px;
+            height: 1px;
+            background: linear-gradient(90deg, #fff, transparent);
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: rotate(315deg) translateX(0);
+                opacity: 1;
+            }
+
+            70% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotate(315deg) translateX(-1500px);
+                opacity: 0;
+            }
+        }
+
+        .shooting-stars span:nth-child(1) {
+            top: 0;
+            right: 0;
+            left: initial;
+            animation-delay: 0s;
+            animation-duration: 4s;
+        }
+
+        .shooting-stars span:nth-child(2) {
+            top: 0;
+            right: 180px;
+            left: initial;
+            animation-delay: 2.2s;
+            animation-duration: 5s;
+        }
+
+        .shooting-stars span:nth-child(3) {
+            top: 150px;
+            right: 0;
+            left: initial;
+            animation-delay: 3.5s;
+            animation-duration: 4.5s;
+        }
+
+        .shooting-stars span:nth-child(4) {
+            top: 0;
+            right: 400px;
+            left: initial;
+            animation-delay: 5s;
+            animation-duration: 5.5s;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(3, 3, 8, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--star-white);
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .nav-links li a:hover {
+            color: var(--star-white);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 7rem 5% 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .section-inner {
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        h1 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, var(--nebula-blue), #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-centered {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2.5rem;
+            background: transparent;
+            color: var(--star-white);
+            text-decoration: none;
+            border: 1px solid var(--glass-border);
+            border-radius: 4px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Timeline (Expérience & Études) */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            background: var(--glass-border);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: 0;
+        }
+
+        .timeline-item {
+            padding: 0 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 11px;
+            height: 11px;
+            right: -6px;
+            background-color: var(--space-dark);
+            border: 2px solid var(--nebula-blue);
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::after {
+            background-color: var(--nebula-blue);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -7px;
+        }
+
+        .content {
+            padding: 2rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .content:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.03);
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.1);
+        }
+
+        .content h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--star-white);
+        }
+
+        .content h4 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            color: var(--nebula-purple);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .content .date {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Grid for Passions */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .grid-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .grid-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--nebula-blue);
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            width: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .skill-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1rem;
+            object-fit: contain;
+        }
+
+        .skill-item span {
+            font-size: 0.9rem;
+            color: var(--star-white);
+            font-family: 'Quicksand', sans-serif;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* Animations de Révélation (Scroll) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            /* On cache la navbar sur mobile pour simplifier */
+
+            .timeline::after {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 0;
+            }
+
+            .right {
+                left: 0%;
+            }
+
+            .left::after,
+            .right::after {
+                left: 14px;
+            }
+
+            .content .date {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 1rem;
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nebula"></div>
+
+    <!-- Étoiles filantes -->
+    <div class="shooting-stars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about" class="logo">Armand</a>
+        <ul class="nav-links">
+            <li><a href="#about">Qui suis-je</a></li>
+            <li><a href="#experience">Expérience</a></li>
+            <li><a href="#education">Formation</a></li>
+            <li><a href="#skills">Logiciels & OS</a></li>
+            <li><a href="#passions">Passions</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- 1. Qui je suis (À propos) -->
+    <section id="about">
+        <div class="section-inner" style="text-align: center;">
+            <h1 class="reveal">Bienvenue, je suis <span class="highlight">Armand</span></h1>
+            <p class="text-centered reveal delay-1">
+                Curieux de nature et fasciné par l'univers qui nous entoure, j'aime comprendre comment les choses
+                fonctionnent et relever de nouveaux défis au quotidien.
+                <br><br>
+                C'est cette soif d'apprendre qui m'a naturellement guidé vers le monde de la technologie, où je me suis
+                spécialisé dans l'assemblage, la réparation et l'optimisation de systèmes informatiques.
+            </p>
+            <div class="reveal delay-2">
+                <a href="#experience" class="btn">Découvrir mon parcours</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Expérience Professionnelle -->
+    <section id="experience">
+        <div class="section-inner">
+            <h2 class="reveal">Expérience Professionnelle</h2>
+            <div class="timeline">
+                <div class="timeline-item left reveal delay-1">
+                    <div class="content">
+                        <span class="date">2024 - Présent</span>
+                        <h3>Spécialiste Maintenance PC</h3>
+                        <h4>Indépendant</h4>
+                        <p>Diagnostic approfondi des pannes matérielles et logicielles, réparation de composants
+                            défectueux, et nettoyage complet des systèmes de refroidissement.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right reveal delay-2">
+                    <div class="content">
+                        <span class="date">2022 - 2024</span>
+                        <h3>Technicien de Support IT</h3>
+                        <h4>Entreprise X</h4>
+                        <p>Assistance technique aux utilisateurs, gestion de parcs informatiques, déploiement d'OS et
+                            gestion des mises à jour réseau.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left reveal delay-3">
+                    <div class="content">
+                        <span class="date">2021 - 2022</span>
+                        <h3>Monteur de PC Sur Mesure</h3>
+                        <h4>Boutique Informatique</h4>
+                        <p>Assemblage de configurations orientées Gaming et postes de travail, conseils clients sur le
+                            choix des composants et optimisation du flux d'air (cable management).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Parcours Scolaire et Études -->
+    <section id="education">
+        <div class="section-inner">
+            <h2 class="reveal">Parcours Scolaire</h2>
+            <div class="timeline">
+                <div class="timeline-item right reveal delay-1">
+                    <div class="content">
+                        <span class="date">2020 - 2022</span>
+                        <h3>BTS Systèmes Numériques</h3>
+                        <h4>Lycée / École</h4>
+                        <p>Formation approfondie sur l'architecture matérielle des ordinateurs, les réseaux de
+                            communication, et la programmation des systèmes embarqués.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left reveal delay-2">
+                    <div class="content">
+                        <span class="date">2017 - 2020</span>
+                        <h3>Baccalauréat STI2D</h3>
+                        <h4>Lycée</h4>
+                        <p>Spécialité Systèmes d'Information et Numérique. Apprentissage des bases de l'algorithmique et
+                            premières manipulations matérielles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Logiciels et Systèmes d'Exploitation -->
+    <section id="skills">
+        <div class="section-inner">
+            <h2 class="reveal">Logiciels & OS</h2>
+            <div class="skills-grid reveal delay-1">
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg"
+                        alt="Windows" />
+                    <span>Windows</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+                        alt="Linux" />
+                    <span>Linux</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="macOS"
+                        style="filter: invert(1);" />
+                    <span>macOS</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                        alt="VS Code" />
+                    <span>VS Code</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg"
+                        alt="Terminal" />
+                    <span>Terminal</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                        alt="Git" />
+                    <span>Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Passions et Autre info -->
+    <section id="passions">
+        <div class="section-inner">
+            <h2 class="reveal">Passions & Loisirs</h2>
+            <div class="grid">
+                <div class="grid-card reveal delay-1">
+                    <div class="icon">🌌</div>
+                    <h3>Astronomie & Espace</h3>
+                    <p>Fasciné par l'univers, je m'intéresse de près aux découvertes spatiales et à l'astrophotographie
+                        lors de mon temps libre.</p>
+                </div>
+                <div class="grid-card reveal delay-2">
+                    <div class="icon">🎮</div>
+                    <h3>Gaming</h3>
+                    <p>Joueur passionné, testant continuellement de nouveaux jeux pour mettre à l'épreuve les
+                        configurations matérielles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Contact -->
+    <section id="contact">
+        <div class="section-inner" style="text-align: center;">
+            <h2 class="reveal">Me contacter</h2>
+            <p class="text-centered reveal delay-1">armand.delaiguesn@gmail.com</p>
+            <div class="reveal delay-2" style="margin-top: 2rem;">
+                <a href="mailto:armand.delaiguesn@gmail.com" class="btn">Me contacter par E-mail</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Armand. Module de présentation v2.0 - Connexion établie.</p>
+    </footer>
+
+    <!-- Script Javascript pour l'animation au défilement (Scroll Reveal) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Ajoute la classe 'active' pour lancer l'animation CSS
+                        entry.target.classList.add('active');
+                        // Optionnel : arrêter d'observer une fois animé
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                threshold: 0.1, // L'élément s'anime quand 10% de sa hauteur est visible
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            reveals.forEach(reveal => {
+                observer.observe(reveal);
+            });
+
+            // Effet parallax très subtil sur la nébuleuse
+            const nebula = document.querySelector('.nebula');
+            window.addEventListener('scroll', () => {
+                const scrolled = window.scrollY;
+                nebula.style.transform = `translate(-50%, calc(-50% + ${scrolled * 0.1}px))`;
+            });
+        });
+    </script>
+</body>
+
+</html>
