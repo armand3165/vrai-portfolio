@@ -12,12 +12,17 @@ class SiteBg extends HTMLElement {
 
 class SiteNav extends HTMLElement {
     connectedCallback() {
+        // Detect if we are running in the /src/ directory
+        const inSrc = window.location.pathname.includes('/src/');
+        const rootPath = inSrc ? '../' : './';
+        const srcPath = inSrc ? './' : 'src/';
+
         this.innerHTML = `
     <nav>
-        <a href="principal.html" class="logo">Armand</a>
+        <a href="${rootPath}index.html" class="logo">Armand</a>
         <ul class="nav-links">
             <li>
-                <a href="principal.html" class="nav-item">
+                <a href="${rootPath}index.html" class="nav-item">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -27,7 +32,7 @@ class SiteNav extends HTMLElement {
                 </a>
             </li>
             <li>
-                <a href="education.html" class="nav-item">
+                <a href="${srcPath}education.html" class="nav-item">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
@@ -37,7 +42,7 @@ class SiteNav extends HTMLElement {
                 </a>
             </li>
             <li>
-                <a href="experience.html" class="nav-item">
+                <a href="${srcPath}experience.html" class="nav-item">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
@@ -47,7 +52,7 @@ class SiteNav extends HTMLElement {
                 </a>
             </li>
             <li>
-                <a href="skills.html" class="nav-item">
+                <a href="${srcPath}skills.html" class="nav-item">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
@@ -65,7 +70,7 @@ class SiteNav extends HTMLElement {
                 </a>
             </li>
             <li>
-                <a href="passions.html" class="nav-item">
+                <a href="${srcPath}passions.html" class="nav-item">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <polygon
@@ -76,7 +81,7 @@ class SiteNav extends HTMLElement {
                 </a>
             </li>
             <li>
-                <a href="contact.html" class="nav-item">
+                <a href="${srcPath}contact.html" class="nav-item">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
