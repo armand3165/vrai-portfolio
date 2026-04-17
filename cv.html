@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Armand Delaigue</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cv-container {
+            background-color: #fff;
+            width: 800px;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+
+        /* Colonne de Gauche */
+        .sidebar {
+            border-right: 2px solid #eeeeee;
+            padding-right: 20px;
+        }
+
+        .sidebar h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            font-size: 1.1rem;
+        }
+
+        .contact-info,
+        .skills,
+        .languages {
+            list-style: none;
+            padding: 0;
+            font-size: 0.9rem;
+        }
+
+        .contact-info li,
+        .skills li {
+            margin-bottom: 8px;
+        }
+
+        /* Colonne de Droite */
+        .main-content h1 {
+            margin: 0;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .main-content h2 {
+            color: #3498db;
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .section-title {
+            background-color: #2c3e50;
+            color: white;
+            padding: 5px 10px;
+            margin-top: 30px;
+            font-size: 1.1rem;
+        }
+
+        .experience,
+        .education {
+            margin-bottom: 20px;
+        }
+
+        .date {
+            font-weight: bold;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .job-title {
+            font-weight: bold;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cv-container">
+        <div class="sidebar">
+            <h3>CONTACT</h3>
+            <ul class="contact-info">
+                <li>📞 07 69 53 18 30</li>
+                <li>✉️ armand.delaiguesn@gmail.com</li>
+                <li>📍 28 Rue Sainte-Catherine<br>65000 Tarbes</li>
+            </ul>
+
+            <h3>PROFIL</h3>
+            <p style="font-size: 0.9rem;">
+                Âge : 19 ans<br>
+                <strong>Passions :</strong> Informatique, astronomie, astrophotographie.
+            </p>
+
+            <h3>LOGICIEL ET OS</h3>
+            <ul class="skills">
+                <li>VMWARE</li>
+                <li>Word / LibreOffice Writer</li>
+                <li>Windows / Debian</li>
+            </ul>
+
+            <h3>COMPÉTENCES</h3>
+            <ul class="skills">
+                <li>Conscience professionnelle</li>
+                <li>Capacité d'adaptation</li>
+                <li>Relation client</li>
+            </ul>
+
+            <h3>LANGUES</h3>
+            <p style="font-size: 0.9rem;">Anglais : Bon niveau scolaire</p>
+        </div>
+
+        <div class="main-content">
+            <h1>Armand Delaigue</h1>
+            <h2>Études suivies : BTS SIO</h2>
+
+            <div class="section-title">STAGE & EXPÉRIENCE</div>
+            <div class="experience">
+                <span class="date">2023 - 2025 (28 semaines - 6 stages)</span>
+                <span class="job-title">Dépannage Informatique - AROBATIC (Cierp Gaud)</span>
+                <div class="description">
+                    <strong>Tâches effectuées :</strong>
+                    <ul>
+                        <li>Montage et réparation de PC</li>
+                        <li>Maintenance extérieure</li>
+                        <li>Gestion de la clientèle</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-title">DIPLÔMES & FORMATION</div>
+
+            <div class="education">
+                <span class="date">JUIN 2025</span>
+                <span class="job-title">BAC PRO SN (Systèmes Numériques)</span>
+                <span class="description">Lycée Pradeau La Sède Saint Pierre</span>
+            </div>
+
+            <div class="education">
+                <span class="date">Année de Seconde</span>
+                <span class="job-title">Seconde MELEC</span>
+                <span class="description">Lycée Polyvalent Paul Mathou</span>
+            </div>
+
+            <div class="education">
+                <span class="date">2020 - 2021</span>
+                <span class="job-title">Brevet des Collèges</span>
+                <span class="description">Lycée Professionnel des Métiers du Bois</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

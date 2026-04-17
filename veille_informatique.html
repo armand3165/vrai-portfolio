@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Armand | Portfolio</title>
+    <title>Armand | Veille Informatique</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,14 +15,10 @@
 
     <div class="nebula"></div>
 
-    <!-- Galaxies en arrière-plan -->
     <div class="galaxy galaxy-1"></div>
     <div class="galaxy galaxy-2"></div>
     <div class="galaxy galaxy-3"></div>
 
-
-
-    <!-- Navigation -->
     <nav>
         <a href="principal.html" class="logo">Armand</a>
         <ul class="nav-links">
@@ -116,56 +112,79 @@
         </ul>
     </nav>
 
-    <!-- 1. Qui je suis (À propos) -->
+    <!-- En-tête de la veille -->
+    <section id="veille-intro" style="padding-top: 10rem; padding-bottom: 2rem;">
+        <div class="section-inner" style="text-align: center;">
+            <h1 class="reveal"><span class="highlight">Ma veille</span> sur le DLSS de NVIDIA</h1>
+            <p class="text-centered reveal delay-1" style="font-size: 1.2rem;">
+                Objectif : raconter ma méthode de veille, mes outils et mon organisation.
+            </p>
+        </div>
+    </section>
 
-
-    <!-- 4. Logiciels et Systèmes d'Exploitation -->
-
-
-    <!-- 5. Contact -->
-    <section id="about">
-        <div class="section-inner cv-container">
-            <!-- Carte CV -->
-            <div class="cv-card reveal">
-                <div class="cv-photo">
-                    <img src="FB_IMG_1776241751005.jpg" alt="Photo de profil Armand" />
+    <!-- Contenu de la veille -->
+    <section id="veille-content" style="padding-top: 2rem;">
+        <div class="section-inner">
+            <div class="grid">
+                <div class="grid-card reveal">
+                    <div class="icon">🤔</div>
+                    <h3>Pourquoi ce sujet ?</h3>
+                    <ul>
+                        <li>Passion jeux vidéo + performance graphique</li>
+                        <li>Mot-clé repéré : "DLSS"</li>
+                        <li>Question : promesse vs réalité</li>
+                        <li>But de la veille : comprendre, sourcer, trier</li>
+                    </ul>
                 </div>
-                <h2 class="cv-name">Armand D.</h2>
-                <h3 class="cv-title">Technicien Informatique</h3>
-                <ul class="cv-details">
-                    <li><strong>Âge</strong> <span>19 ans</span></li>
-                    <li><strong>Statut</strong> <span>Étudiant</span></li>
-                    <li><strong>Localisation</strong> <span>France</span></li>
-                    <li><strong>Email</strong> <a href="mailto:armand.delaiguesn@gmail.com"
-                            style="color:var(--star-white); text-decoration:none;">Me contacter</a></li>
-                </ul>
+
+                <div class="grid-card reveal delay-1">
+                    <div class="icon">💻</div>
+                    <h3>C’est quoi le DLSS ?</h3>
+                    <p>
+                        NVIDIA deep learning super sampling (DLSS) est une fonction avancée alimentée par l'IA et développée par NVIDIA®. Elle est conçue pour améliorer les performances de jeu et la qualité de l'image en exploitant la puissance de l'intelligence artificielle et des algorithmes d'apprentissage profond.
+                    </p>
+                </div>
             </div>
 
-            <!-- Description -->
-            <div class="cv-content reveal delay-1">
-                <h1>Profil <span class="highlight">Personnel</span></h1>
-                <p>
-                    Curieux de nature et fasciné par l'univers qui nous entoure, j'aime comprendre comment les choses
-                    fonctionnent et relever de nouveaux défis au quotidien.
-                    <br><br>
-                    C'est cette soif d'apprendre qui m'a naturellement guidé vers le monde de la technologie, où je me
-                    suis
-                    spécialisé dans l'assemblage, la réparation et l'optimisation de systèmes informatiques.
-                </p>
-                <div style="margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <a href="#education" class="btn">Découvrir mon parcours</a>
-                    <a href="cv.html" class="btn" target="_blank" rel="noopener noreferrer">Voir mon CV</a>
-                    <a href="veille_informatique.html" class="btn">Veille Informatique</a>
+            <div class="grid" style="margin-top: 2rem;">
+                <div class="grid-card reveal delay-2">
+                    <div class="icon">📚</div>
+                    <h3>Sources principales</h3>
+                    <ul>
+                        <li>Sites officiels NVIDIA (notes de version)</li>
+                        <li>IA pour la recherche de bonne sources</li>
+                        <li>Médias tech : Vidéo Youtube, Twitter, reddit, site web sur le sujet</li>
+                    </ul>
+                </div>
+
+                <div class="grid-card reveal delay-3">
+                    <div class="icon">📂</div>
+                    <h3>Organisation des notes</h3>
+                    <ul>
+                        <li>Recherche</li>
+                        <li>Notes sur un drive (gdoc)</li>
+                        <li>Essayer d'approfondir</li>
+                    </ul>
+                </div>
+
+                <div class="grid-card reveal delay-4">
+                    <div class="icon">🎓</div>
+                    <h3>Leçons apprises</h3>
+                    <ul>
+                        <li>Définir tôt les critères</li>
+                        <li>Automatiser l’arrivée d’infos</li>
+                        <li>Noter, taguer, résumer tout de suite</li>
+                        <li>Rythme court, mise à jour continue</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Armand. Module de présentation v2.0 - Connexion établie.</p>
+        <p>&copy; 2026 Armand. Veille Informatique - DLSS NVIDIA.</p>
     </footer>
 
-    <!-- Script Javascript pour l'animation au défilement (Scroll Reveal) -->
     <script src="script.js"></script>
 </body>
 
